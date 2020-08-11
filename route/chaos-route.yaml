@@ -1,0 +1,11 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: chaos-dashboard
+spec:
+  host: chaos.apps.kk-ocp43.os.fyre.ibm.com
+  to:
+    kind: Service
+    name: chaos-dashboard
+    weight: 100
+  wildcardPolicy: None

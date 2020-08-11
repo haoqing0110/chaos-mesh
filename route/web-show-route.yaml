@@ -1,0 +1,11 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: web-show
+spec:
+  host: web-show.apps.kk-ocp43.os.fyre.ibm.com
+  to:
+    kind: Service
+    name: web-show
+    weight: 100
+  wildcardPolicy: None
