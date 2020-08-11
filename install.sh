@@ -273,7 +273,7 @@ check_kubernetes() {
 }
 
 check_kubernetes_version() {
-    version_info=$(kubectl version | sed 's/.*GitVersion:\"v\([0-9.]*\).*/\1/g')
+    version_info=$(kubectl version | grep Server | sed 's/.*GitVersion:\"v\([0-9.]*\).*/\1/g')
 
     for v in $version_info
     do

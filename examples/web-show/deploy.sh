@@ -61,7 +61,8 @@ if [ ${DELETE_APP} == "true" ]; then
     exit 0
 fi
 
-TARGET_IP=$(kubectl get pod -n kube-system -o wide| grep kube-controller | head -n 1 | awk '{print $6}')
+#TARGET_IP=$(kubectl get pod -n kube-system -o wide| grep kube-controller | head -n 1 | awk '{print $6}')
+TARGET_IP=$(oc get pods -owide -nopenshift-kube-controller-manager | grep kube-controller-manager-master | head -n 1 | awk '{print $6}')
 
 if [ ${DOCKER_MIRROR} == "true" ]; then
     docker pull dockerhub.azk8s.cn/pingcap/web-show || true
